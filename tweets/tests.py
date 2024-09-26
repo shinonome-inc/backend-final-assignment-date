@@ -12,7 +12,7 @@ class TestHomeView(TestCase):
         self.client.login(username="tester", password="testpassword")
 
     def test_success_get(self):
-        response = self.client.get(self.url, {"username": "tester", "password": "testpassword"})
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
 
