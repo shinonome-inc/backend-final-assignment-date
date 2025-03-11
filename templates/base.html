@@ -13,6 +13,16 @@
       <ul>
         <li><a href="{% url 'welcome:welcome' %}">Twitter Clone</a></li>
         <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
+        <li><a href="{% url 'accounts:login' %}">Login</a></li> <!-- Loginを表示する -->
+        {% if user.is_authenticated %}
+        <form method="post" action="{% url 'accounts:logout' %}">
+          {% csrf_token %}
+          <button type="submit">Logout</button> <!--ここだけリンクを踏まないので見た目が悪い-->
+        </form>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'accounts:user_profile' user.username %}">Profile</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>
