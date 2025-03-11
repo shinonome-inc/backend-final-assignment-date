@@ -4,7 +4,7 @@
 
 {% block content %}
 <form method="post">
-    {{form.as_p}}
+    {{form.as_p}} <!--SignUpformのインスタンスが入っている(GETリクエスト)-->
     {% csrf_token %}
     <button type="submit">ユーザー登録</button>
 </form>
